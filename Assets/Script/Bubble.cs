@@ -30,6 +30,6 @@ public class Bubble : MonoBehaviour
 
     public void MinesBubble()
     {
-        transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
+        transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
     }
 }
