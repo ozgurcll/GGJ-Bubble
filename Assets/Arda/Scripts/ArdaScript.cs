@@ -38,7 +38,7 @@ public class ArdaScript : MonoBehaviour
         {
             managerGame.UpdateScore();  
         }
-        else if(collision.gameObject.name == "baloncuk")
+        else if(collision.gameObject.tag == "Baloncuk")
         {
             Destroy(collision.gameObject);
             GameObject bubble = Instantiate(Bubble,transform.position,Quaternion.identity);

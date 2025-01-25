@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class BubbleSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject spawnlananbaloncuklar;
+    public float time;
     void Start()
     {
-        
+        StartCoroutine(SpawnObject(time));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public IEnumerator SpawnObject(float time)
+    {
+        while (true)
+        {
+            SpawnBubble();
+            yield return new WaitForSeconds(time);
+        }
+    }
+
+    public void SpawnBubble()
+    {
+        Instantiate(spawnlananbaloncuklar, new Vector3(Random.Range(-2f, 4f), 12.4f, 0), Quaternion.identity);
     }
 }
