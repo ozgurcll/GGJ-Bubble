@@ -20,8 +20,8 @@ public class BubbleSpawner : MonoBehaviour
     {
         while (true)
         {
-            SpawnBubble();
             yield return new WaitForSeconds(time);
+            SpawnBubble();
         }
     }
 
