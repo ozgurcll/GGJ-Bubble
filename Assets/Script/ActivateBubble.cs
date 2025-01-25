@@ -6,29 +6,37 @@ public class ActivateBubble : MonoBehaviour
 {
     [SerializeField] private GameObject bubble;
     [SerializeField] private GameObject eButton;
+    [SerializeField] private GameObject timeBar;
     [SerializeField] private Transform bubbleSpawn;
-    [SerializeField] private bool isActive = false;
+    private bool isActive = false;
+    private bool isBubbleActive = false;
+
+
+    [SerializeField] private BubbleBar bubbleBar;
 
     private void Start()
     {
         eButton.SetActive(false);
+        timeBar.SetActive(false);
     }
 
     private void Update()
     {
-        if (isActive && Input.GetKeyDown(KeyCode.E))
+        if (isActive && Input.GetKeyDown(KeyCode.E) && !isBubbleActive)
         {
+            isBubbleActive = true;
             isActive = false;
-            GameObject newBubble = Instantiate(bubble, bubbleSpawn.position, Quaternion.identity);
+            Instantiate(bubble, bubbleSpawn.position, Quaternion.identity);
             eButton.SetActive(false);
+            timeBar.SetActive(true);
+            bubbleBar.GetBubble();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Player>())
+        if (other.GetComponent<Player>() && !isBubbleActive)
         {
-            Debug.Log("Player is near the bubble");
             isActive = true;
             eButton.SetActive(true);
         }
@@ -36,9 +44,8 @@ public class ActivateBubble : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<Player>())
+        if (other.GetComponent<Player>() && !isBubbleActive)
         {
-            Debug.Log("Player is far from the bubble");
             isActive = false;
             eButton.SetActive(false);
         }
