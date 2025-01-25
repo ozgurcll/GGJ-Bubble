@@ -16,12 +16,5 @@ public class Move : MonoBehaviour
         transform.position += Vector3.down * speed * Time.deltaTime;
        
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            bubbleSpawner.SpawnBubble();
-            Destroy(gameObject, 0.2f);
-        }
-    }
+    
 }
