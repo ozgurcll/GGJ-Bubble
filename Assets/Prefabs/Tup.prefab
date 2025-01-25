@@ -267,8 +267,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 1155005868739585647, guid: 0f8568d8200074d8b9c635679b46f5ad, type: 3}
   eButton: {fileID: 8503290538088038817}
+  timeBar: {fileID: 0}
   bubbleSpawn: {fileID: 7649444778844217837}
-  isActive: 0
+  bubbleBar: {fileID: 0}
 --- !u!61 &1043004261496321620
 BoxCollider2D:
   m_ObjectHideFlags: 0

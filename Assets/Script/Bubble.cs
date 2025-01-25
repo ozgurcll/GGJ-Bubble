@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
+    public BubbleBar AssignedBar { get; set; } 
     [SerializeField] private bool isFulled = false;
     private float healTimer;
     private float healInterval = 0.2f;
@@ -29,8 +30,6 @@ public class Bubble : MonoBehaviour
 
     public void MinesBubble()
     {
-
         transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
-        Debug.Log("Mines");
     }
 }

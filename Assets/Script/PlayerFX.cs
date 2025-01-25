@@ -4,7 +4,6 @@ using UnityEngine;
 using Cinemachine;
 public class PlayerFX : MonoBehaviour
 {
-    private Player player => GetComponent<Player>();
     [Header("Screen Shake FX")]
     private CinemachineImpulseSource screenShake;
     [SerializeField] private float shakeMultiplier;

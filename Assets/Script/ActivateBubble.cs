@@ -26,10 +26,16 @@ public class ActivateBubble : MonoBehaviour
         {
             isBubbleActive = true;
             isActive = false;
-            Instantiate(bubble, bubbleSpawn.position, Quaternion.identity);
+
+            GameObject newBubble = Instantiate(bubble, bubbleSpawn.position, Quaternion.identity);
+
+            Bubble bubbleComponent = newBubble.GetComponent<Bubble>();
+            bubbleComponent.AssignedBar = bubbleBar;
+
+            bubbleBar.GetBubble(bubbleComponent);
+
             eButton.SetActive(false);
             timeBar.SetActive(true);
-            bubbleBar.GetBubble();
         }
     }
 
