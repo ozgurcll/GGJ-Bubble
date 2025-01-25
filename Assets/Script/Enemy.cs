@@ -56,6 +56,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<Bubble>() != null)
+        {
+            other.GetComponent<Bubble>().MinesBubble();
+            Debug.Log("SDASFS");
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if (targetBubble != null)
@@ -63,5 +72,10 @@ public class Enemy : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, targetBubble.position);
         }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

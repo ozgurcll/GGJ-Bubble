@@ -26,4 +26,11 @@ public class Bubble : MonoBehaviour
             isFulled = true;
         }
     }
+
+    public void MinesBubble()
+    {
+
+        transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
+        Debug.Log("Mines");
+    }
 }

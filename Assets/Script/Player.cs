@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public PlayerFX fx => GetComponent<PlayerFX>();
     public float moveSpeed = 2f;
     public float acceleration = 2f;
     public float drag = 1f;
@@ -12,10 +13,28 @@ public class Player : MonoBehaviour
     public KeyCode downKey;
     public KeyCode leftKey;
     public KeyCode rightKey;
+    public KeyCode attackKey;
 
     private Vector2 velocity;
 
+
+    public Transform attackCheck;
+    public float attackRange;
+
+    public Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void Update()
+    {
+        Movement();
+        Attack();
+    }
+
+    private void Movement()
     {
         Vector2 inputDirection = Vector2.zero;
 
@@ -48,4 +67,18 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         }
     }
+
+    private void Attack()
+    {
+        if (Input.GetKeyDown(attackKey))
+        {
+            anim.SetBool("Attack", true);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackCheck.position, attackRange);
+    }
+
 }
