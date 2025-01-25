@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 302826414}
   - component: {fileID: 302826413}
   - component: {fileID: 302826415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1033,7 +1033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16649bd6636c942f08c48d380cf7667f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bubble: {fileID: 0}
   _bar: {fileID: 1858793230}
   _barText: {fileID: 1129542573}
   minScale: 0.5
@@ -1144,7 +1143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 775389858}
   - component: {fileID: 775389859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1608,7 +1607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16649bd6636c942f08c48d380cf7667f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bubble: {fileID: 0}
   _bar: {fileID: 1256141145}
   _barText: {fileID: 660182404}
   minScale: 0.5
@@ -1758,7 +1756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1240306220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1913,7 +1911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434754247}
   - component: {fileID: 1434754248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1997,7 +1995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476345535}
   - component: {fileID: 1476345536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2084,7 +2082,7 @@ GameObject:
   - component: {fileID: 1514050111}
   - component: {fileID: 1514050110}
   - component: {fileID: 1514050109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
