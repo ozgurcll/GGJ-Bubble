@@ -49,13 +49,10 @@ public class Enemy : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, targetBubble.position, speed * Time.deltaTime);
 
-            // Enemy'nin yüzünü hedefe çevir
             Vector3 direction = (targetBubble.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            float angleY = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            // Orijinal rotasyonu düzeltmek için offset ekliyoruz (örneğin 90 derece yukarı bakıyorsa)
-            float rotationOffset = 0f; // Sprite'ın yönüne göre ayarla (ör. sola bakıyorsa 90, yukarı bakıyorsa 0)
-            transform.rotation = Quaternion.Euler(0, 0, angle + rotationOffset);
+            transform.rotation = Quaternion.Euler(0, angleY, 0);
         }
     }
 
