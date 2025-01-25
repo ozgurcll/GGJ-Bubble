@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(Obstacles, new Vector3(Random.Range(-0.15f, 2.2f), 12.4f, 0), Quaternion.identity);
+            Instantiate(Obstacles, new Vector3(Random.Range(-2f, 4f), 12.4f, 0), Quaternion.identity);
             yield return new WaitForSeconds(time);
 
         }

@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: 1bb73441016b3374bbef602a86cf4182
   - enabled: 1
     path: Assets/Scenes/ArdaSahnesi.unity
     guid: c2e30d4bcaf52924da3329eb587582f8
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 4c6ed84d1b89e90448efe12131b7387a
   m_configObjects: {}

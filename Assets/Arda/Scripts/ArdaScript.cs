@@ -10,6 +10,8 @@ public class ArdaScript : MonoBehaviour
     public bool isDead = false;
     public GameManager managerGame;
     public GameObject deathscene;
+    public GameObject Bubble;
+    
 
 
     void Start()
@@ -35,6 +37,12 @@ public class ArdaScript : MonoBehaviour
         if (collision.gameObject.name == "ScoreArea")
         {
             managerGame.UpdateScore();  
+        }
+        else if(collision.gameObject.name == "baloncuk")
+        {
+            Destroy(collision.gameObject);
+            GameObject bubble = Instantiate(Bubble,transform.position,Quaternion.identity);
+            bubble.transform.SetParent(transform);
         }
          
     }
