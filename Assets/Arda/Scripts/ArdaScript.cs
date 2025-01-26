@@ -11,12 +11,15 @@ public class ArdaScript : MonoBehaviour
     public GameManager managerGame;
     public GameObject deathscene;
     public GameObject Bubble;
+    public bool isbubbled;
+    public GameObject player;
+    public float time = 3f;
     
 
 
     void Start()
     {
-        
+        isbubbled = false;
     }
     
     public void Die()
@@ -31,6 +34,10 @@ public class ArdaScript : MonoBehaviour
         XInput = Input.GetAxis("Horizontal");
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(XInput * movementspeed,rb.velocity.y);
+        if (isbubbled)
+        {
+            player.GetComponent<CapsuleCollider2D>().isTrigger = true;   
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,6 +50,10 @@ public class ArdaScript : MonoBehaviour
             Destroy(collision.gameObject);
             GameObject bubble = Instantiate(Bubble,transform.position,Quaternion.identity);
             bubble.transform.SetParent(transform);
+            isbubbled = true;
+            StartCoroutine(Baloncukgit(time,bubble));
+            bubble.SetActive(true);
+            
         }
          
     }
@@ -52,5 +63,12 @@ public class ArdaScript : MonoBehaviour
         {
             Die();
         }
+    }
+   public IEnumerator Baloncukgit(float time, GameObject bubble )
+    {
+        yield return new WaitForSeconds(time);
+        isbubbled = false;
+        player.GetComponent<CapsuleCollider2D>().isTrigger = false;
+        bubble.SetActive(false);
     }
 }

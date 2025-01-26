@@ -2493,6 +2493,8 @@ MonoBehaviour:
   managerGame: {fileID: 1062872411}
   deathscene: {fileID: 93675933}
   Bubble: {fileID: 4395361572774031005, guid: c351c4907b109044f9581555ee2598b9, type: 3}
+  isbubbled: 0
+  player: {fileID: 1900875759}
 --- !u!212 &1900875762
 SpriteRenderer:
   m_ObjectHideFlags: 0
