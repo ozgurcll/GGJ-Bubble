@@ -11,6 +11,7 @@ public class ActivateBubble : MonoBehaviour
     private bool isActive = false;
     private bool isBubbleActive = false;
 
+    [SerializeField] private KeyCode activeKey;
 
     [SerializeField] private BubbleBar bubbleBar;
 
@@ -22,7 +23,7 @@ public class ActivateBubble : MonoBehaviour
 
     private void Update()
     {
-        if (isActive && Input.GetKeyDown(KeyCode.E) && !isBubbleActive)
+        if (isActive && Input.GetKeyDown(activeKey) && !isBubbleActive)
         {
             isBubbleActive = true;
             isActive = false;

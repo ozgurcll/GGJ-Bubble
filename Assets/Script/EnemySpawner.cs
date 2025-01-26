@@ -9,9 +9,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnInterval = 5f;
 
     private float spawnTimer;
+    private bool areBubblesFull = false; // Baloncukların doluluğunu kontrol eden değişken
 
     private void Update()
     {
+        // Eğer baloncuklar %100 ise düşman spawn işlemi yapılmasın
+        if (areBubblesFull)
+            return;
+
         spawnTimer -= Time.deltaTime;
 
         if (spawnTimer <= 0 && IsBubbleAvailable())
@@ -30,5 +35,11 @@ public class EnemySpawner : MonoBehaviour
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+    }
+
+    // Baloncukların doluluk durumu değiştiğinde bu fonksiyon çağrılır
+    public void SetBubblesFull(bool isFull)
+    {
+        areBubblesFull = isFull;
     }
 }

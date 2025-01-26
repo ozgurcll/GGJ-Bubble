@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-    public BubbleBar AssignedBar { get; set; } 
-    [SerializeField] private bool isFulled = false;
+    public BubbleBar AssignedBar { get; set; }
+    public bool isFulled = false;
     private float healTimer;
     private float healInterval = 0.2f;
+
+
 
     private void Start()
     {
@@ -19,17 +22,21 @@ public class Bubble : MonoBehaviour
         if (healTimer <= 0 && !isFulled)
         {
             healTimer = healInterval;
-            transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
+            transform.localScale += new Vector3(0.07f, 0.07f, 0.07f);
         }
 
         if (transform.localScale.x >= 2)
         {
             isFulled = true;
         }
+        else
+        {
+            isFulled = false;
+        }
     }
 
     public void MinesBubble()
     {
-        transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
+        transform.localScale -= new Vector3(0.004f, 0.004f, 0.004f);
     }
 }

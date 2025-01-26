@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
     public KeyCode rightKey;
     public KeyCode attackKey;
 
-    private Vector2 velocity;
-
+    private Rigidbody2D rb; // Rigidbody2D referansı
+    private Vector2 velocity = Vector2.zero; // Hareket yönü ve hızı
 
     public Transform attackCheck;
     public float attackRange;
@@ -25,7 +25,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        rb.drag = drag;
     }
 
     void Update()
@@ -43,28 +45,27 @@ public class Player : MonoBehaviour
         if (Input.GetKey(leftKey)) inputDirection += Vector2.left;
         if (Input.GetKey(rightKey)) inputDirection += Vector2.right;
 
-
         if (inputDirection != Vector2.zero)
         {
-            velocity += inputDirection.normalized * acceleration * Time.deltaTime;
+            velocity += inputDirection.normalized * acceleration * Time.fixedDeltaTime;
         }
         else
         {
-
-            velocity = Vector2.Lerp(velocity, Vector2.zero, drag * Time.deltaTime);
+            // Sürtünme etkisiyle yavaşlama
+            velocity = Vector2.Lerp(velocity, Vector2.zero, drag * Time.fixedDeltaTime);
         }
 
-
+        // Maksimum hız sınırını uygula
         velocity = Vector2.ClampMagnitude(velocity, moveSpeed);
 
+        // Rigidbody2D ile hareket uygula
+        rb.velocity = velocity;
 
-        transform.Translate(velocity * Time.deltaTime, Space.World);
-
-
+        // Hızın belirgin olduğu durumlarda rotasyonu ayarla
         if (velocity.magnitude > 0.1f)
         {
             float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+            rb.rotation = angle - 90;
         }
     }
 
