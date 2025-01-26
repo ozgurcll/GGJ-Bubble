@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    public BubbleSpawner bubbleSpawner;
+   
     public float speed;
     void Start()
     {

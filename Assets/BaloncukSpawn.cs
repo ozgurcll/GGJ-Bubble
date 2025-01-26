@@ -8,11 +8,14 @@ public class BaloncukSpawn : MonoBehaviour
     public GameObject baloncuksol;
     public GameObject baloncuksag;
     public GameObject baloncuk;
-    
+    public GameObject balonsuzengel;
+    public GameObject balonluengel;
+    public float time;
+    int[] number = new int[5];    
     void Start()
     {
         Destroy(gameObject, 4);
-        StartCoroutine(SpawnObject(5));
+        StartCoroutine(SpawnObject(time));
     }
 
     private void FixedUpdate()
@@ -32,12 +35,36 @@ public class BaloncukSpawn : MonoBehaviour
             Instantiate(baloncuk, baloncuksag.transform.position, Quaternion.identity);
         }
     }
+    public void EngelDoguran()
+    {
+        int index = Random.RandomRange(0, 6);
+        switch (index)
+        {
+            case 1:
+                Instantiate(balonluengel, baloncuksol.transform.position, Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(balonluengel, baloncuksol.transform.position, Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(balonluengel, baloncuksol.transform.position, Quaternion.identity);
+                break;
+            case 4:
+                Instantiate(balonluengel, baloncuksol.transform.position, Quaternion.identity);
+                break;
+            case 5:
+                Instantiate(balonsuzengel, baloncuksol.transform.position, Quaternion.identity);
+                break;
+            default:
+                break;
+        }
+    }
     public IEnumerator SpawnObject(float time)
     {
         while (true)
         {
             BaloncukDogurma();
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(time);
 
         }
     }

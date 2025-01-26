@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public ArdaScript ardascript;
-    public GameObject Obstacles;
+    public float speed = 6;
+    
+    public GameObject baloncuk;
+    public GameObject balonsuzengel;
+    public GameObject balonluengel;
     public float time;
     void Start()
     {
@@ -17,13 +20,49 @@ public class Spawner : MonoBehaviour
     {
         
     }
-    public IEnumerator SpawnObject(float time )
+    public IEnumerator SpawnObject(float time)
     {
         while (true)
         {
-            Instantiate(Obstacles, new Vector3(Random.Range(-2f, 4f), 12.4f, 0), Quaternion.identity);
+            EngelDoguran();
             yield return new WaitForSeconds(time);
 
+        }
+    }
+    public void EngelDoguran()
+    {
+        int index = Random.Range(0, 10);
+        switch (index)
+        {
+            case 1:
+                Instantiate(balonluengel, new Vector2(Random.Range(-2,2),transform.position.y), Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
+                break;
+            case 4:
+                Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
+                break;
+            case 5:
+                Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
+                break;
+            case 6:
+                Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
+                break;
+            case 7:
+                Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
+                break;
+            case 8:
+                Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
+                break;
+            case 9:
+                Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
+                break;
+            default:
+                break;
         }
     }
 }
