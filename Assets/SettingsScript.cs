@@ -49,6 +49,6 @@ public class SettingsScript : MonoBehaviour
     }
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(0);
     }
 }

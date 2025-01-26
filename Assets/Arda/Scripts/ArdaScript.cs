@@ -14,12 +14,16 @@ public class ArdaScript : MonoBehaviour
     public bool isbubbled;
     public GameObject player;
     public float time = 3f;
-    
+    public AudioClip pickupsound;
+    private AudioSource audiosource;
+
 
 
     void Start()
     {
         isbubbled = false;
+        audiosource = GetComponent<AudioSource>();
+        Time.timeScale = 2;
     }
     
     public void Die()
@@ -29,6 +33,7 @@ public class ArdaScript : MonoBehaviour
         deathscene.SetActive(true);
         
     }
+
     void Update()
     {
         XInput = Input.GetAxis("Horizontal");
@@ -53,7 +58,9 @@ public class ArdaScript : MonoBehaviour
             isbubbled = true;
             StartCoroutine(Baloncukgit(time,bubble));
             bubble.SetActive(true);
-            
+            audiosource.PlayOneShot(pickupsound);
+            audiosource.loop = true;
+
         }
          
     }
