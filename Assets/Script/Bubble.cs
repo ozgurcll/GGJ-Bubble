@@ -8,7 +8,7 @@ public class Bubble : MonoBehaviour
     public BubbleBar AssignedBar { get; set; }
     public bool isFulled = false;
     private float healTimer;
-    private float healInterval = 0.2f;
+    private float healInterval = 0.1f;
 
 
 
@@ -22,7 +22,7 @@ public class Bubble : MonoBehaviour
         if (healTimer <= 0 && !isFulled)
         {
             healTimer = healInterval;
-            transform.localScale += new Vector3(0.07f, 0.07f, 0.07f);
+            transform.localScale += new Vector3(0.008f, 0.008f, 0.008f);
         }
 
         if (transform.localScale.x >= 2)
@@ -37,6 +37,6 @@ public class Bubble : MonoBehaviour
 
     public void MinesBubble()
     {
-        transform.localScale -= new Vector3(0.004f, 0.004f, 0.004f);
+        transform.localScale -= new Vector3(0.007f, 0.007f, 0.007f);
     }
 }
