@@ -38,7 +38,7 @@ public class Spawner : MonoBehaviour
                 Instantiate(balonluengel, new Vector2(Random.Range(-2,2),transform.position.y), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
+                Instantiate(balonluengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);
                 break;
             case 3:
                 Instantiate(balonsuzengel, new Vector2(Random.Range(-2, 2), transform.position.y), Quaternion.identity);

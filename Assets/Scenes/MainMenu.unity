@@ -544,13 +544,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1377187677}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1377187678}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -876,7 +876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bubble Game
+  m_text: Buble Frenzy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31c8c9b8db8b72c4d8da502bc4594281, type: 2}
   m_sharedMaterial: {fileID: 116182866800852822, guid: 31c8c9b8db8b72c4d8da502bc4594281, type: 2}
